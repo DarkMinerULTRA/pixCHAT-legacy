@@ -1226,10 +1226,46 @@
         "alwaysLoaded": false,
         "file": "assets/NewSprite23.png",
         "kind": "image",
-        "metadata": "{\"extension\":\".png\"}",
+        "metadata": "{\"extension\":\".png\",\"localFilePath\":\"assets/NewSprite23.png\"}",
         "name": "NewSprite23",
         "smoothed": false,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/NewSprite24.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite24",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/NewSprite25.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite25",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/NewSprite26.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite26",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/NewSprite27.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite27",
+        "smoothed": false,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -2345,6 +2381,12 @@
       "name": "bulge",
       "type": "boolean",
       "value": true
+    },
+    {
+      "folded": true,
+      "name": "hurt",
+      "type": "boolean",
+      "value": false
     }
   ],
   "layouts": [
@@ -14097,7 +14139,7 @@
                 "text",
                 "Text",
                 "=",
-                "\"okay, there are four blanks, and one bullet.\""
+                "\"okay, so i'm going to shoot myself and hope its a blank.\""
               ]
             },
             {
@@ -14105,7 +14147,7 @@
                 "value": "Wait"
               },
               "parameters": [
-                "6"
+                "8"
               ]
             },
             {
@@ -14116,7 +14158,7 @@
                 "text",
                 "Text",
                 "=",
-                "\"I am going to shoot myself, and hope it's a blank.\""
+                "\"then your turn. same thing.\""
               ]
             },
             {
@@ -14124,26 +14166,7 @@
                 "value": "Wait"
               },
               "parameters": [
-                "6"
-              ]
-            },
-            {
-              "type": {
-                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-              },
-              "parameters": [
-                "text",
-                "Text",
-                "=",
-                "\"then, it's your turn. same thing.\""
-              ]
-            },
-            {
-              "type": {
-                "value": "Wait"
-              },
-              "parameters": [
-                "6"
+                "8"
               ]
             },
             {
@@ -14660,7 +14683,7 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "RandomInRange(1,3)",
+                "RandomInRange(1,5)",
                 "=",
                 "1"
               ]
@@ -14693,6 +14716,15 @@
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "SetSceneVariableAsBoolean"
+              },
+              "parameters": [
+                "shoot2",
+                "False"
+              ]
+            },
             {
               "type": {
                 "value": "Wait"
@@ -21340,7 +21372,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.628025788078116,
+        "zoomFactor": 0.5147058823529427,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -21369,13 +21401,11 @@
           "depth": 0,
           "height": 512,
           "layer": "",
-          "locked": true,
           "name": "hand",
           "persistentUuid": "af0597be-2335-4dda-b097-62b473e48f4e",
-          "sealed": true,
           "width": 256,
           "x": 284,
-          "y": 88,
+          "y": 688,
           "zOrder": 1,
           "numberProperties": [],
           "stringProperties": [],
@@ -21391,7 +21421,7 @@
           "persistentUuid": "647f0b5e-c27a-4391-af4c-739a4a2a343b",
           "width": 256,
           "x": 602,
-          "y": 183,
+          "y": 783,
           "zOrder": 99,
           "numberProperties": [],
           "stringProperties": [],
@@ -21407,7 +21437,7 @@
           "persistentUuid": "e96d7524-e20b-4b7b-95f7-2435a9a9242b",
           "width": 773,
           "x": 10,
-          "y": 13,
+          "y": 613,
           "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
@@ -21424,6 +21454,131 @@
           "x": 507,
           "y": 272,
           "zOrder": 100,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "NewParticlesEmitter",
+          "persistentUuid": "0a953e36-7dc8-4b03-80fc-01491ff4a61f",
+          "width": 0,
+          "x": 413,
+          "y": 309,
+          "zOrder": 101,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "cut",
+          "persistentUuid": "0988d7e3-856d-4504-b203-fb3b2f1189d8",
+          "width": 0,
+          "x": 388,
+          "y": 285,
+          "zOrder": 102,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 492,
+          "layer": "",
+          "name": "handcollision",
+          "persistentUuid": "c91aca20-e2c6-46c2-b1de-5db56148b4f9",
+          "width": 236,
+          "x": 295,
+          "y": 698,
+          "zOrder": 104,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 240,
+          "layer": "",
+          "name": "pixBOT",
+          "persistentUuid": "ed11334d-e8ae-436c-953b-c2981e609009",
+          "width": 324,
+          "x": 175,
+          "y": 56,
+          "zOrder": 105,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 240,
+          "layer": "",
+          "name": "pixBOT_face",
+          "persistentUuid": "7a74cf5b-e7d6-433a-9bed-173de69f55f6",
+          "width": 324,
+          "x": 175,
+          "y": 56,
+          "zOrder": 106,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "bg",
+          "persistentUuid": "7e63e156-17db-459f-80ce-cbc6b2ace872",
+          "width": 0,
+          "x": 0,
+          "y": 600,
+          "zOrder": 0,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 6,
+          "height": 300,
+          "layer": "",
+          "name": "handdot",
+          "persistentUuid": "76a8bbd9-e08f-4470-911f-d514fb36afe5",
+          "width": 123,
+          "x": 342,
+          "y": 902,
+          "zOrder": 107,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 63,
+          "layer": "",
+          "name": "NewText",
+          "persistentUuid": "facec17e-7de6-43d7-8d1b-a01e6cd1400f",
+          "width": 295,
+          "x": 20,
+          "y": 1040,
+          "zOrder": 109,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -21491,7 +21646,7 @@
           ]
         },
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "hand",
           "type": "Sprite",
@@ -21527,20 +21682,104 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 13,
-                            "y": 21
+                            "x": 97.5,
+                            "y": 140
                           },
                           {
-                            "x": 112,
-                            "y": 21
+                            "x": 90,
+                            "y": 139
                           },
                           {
-                            "x": 112,
+                            "x": 114.5,
+                            "y": 73.5
+                          },
+                          {
+                            "x": 100.5,
+                            "y": 72
+                          },
+                          {
+                            "x": 90.5,
+                            "y": 95
+                          },
+                          {
+                            "x": 93.5,
+                            "y": 61.5
+                          },
+                          {
+                            "x": 94.5,
+                            "y": 29
+                          },
+                          {
+                            "x": 85,
+                            "y": 28
+                          },
+                          {
+                            "x": 73.5,
+                            "y": 62.5
+                          },
+                          {
+                            "x": 73,
+                            "y": 26
+                          },
+                          {
+                            "x": 68,
+                            "y": 20.5
+                          },
+                          {
+                            "x": 58.5,
+                            "y": 24
+                          },
+                          {
+                            "x": 56,
+                            "y": 75
+                          },
+                          {
+                            "x": 48,
+                            "y": 30.5
+                          },
+                          {
+                            "x": 39.5,
+                            "y": 30
+                          },
+                          {
+                            "x": 35.5,
+                            "y": 37
+                          },
+                          {
+                            "x": 35.5,
+                            "y": 88.5
+                          },
+                          {
+                            "x": 30.5,
+                            "y": 72
+                          },
+                          {
+                            "x": 23,
+                            "y": 54
+                          },
+                          {
+                            "x": 16,
+                            "y": 53.5
+                          },
+                          {
+                            "x": 12.5,
+                            "y": 65.5
+                          },
+                          {
+                            "x": 32.5,
+                            "y": 136
+                          },
+                          {
+                            "x": 25.5,
+                            "y": 141
+                          },
+                          {
+                            "x": 26.5,
                             "y": 256
                           },
                           {
-                            "x": 13,
-                            "y": 256
+                            "x": 90.5,
+                            "y": 254.5
                           }
                         ]
                       ]
@@ -21836,6 +22075,460 @@
               ]
             }
           ]
+        },
+        {
+          "additive": false,
+          "assetStoreId": "",
+          "destroyWhenNoParticles": true,
+          "emitterAngleA": 0,
+          "emitterAngleB": 360,
+          "emitterForceMax": 100,
+          "emitterForceMin": 50,
+          "flow": 500,
+          "jumpForwardInTimeOnCreation": 0,
+          "maxParticleNb": 1200,
+          "name": "NewParticlesEmitter",
+          "particleAlpha1": 50,
+          "particleAlpha2": 0,
+          "particleAlphaRandomness1": 0,
+          "particleAlphaRandomness2": 0,
+          "particleAngle1": 0,
+          "particleAngle2": 0,
+          "particleAngleRandomness1": 0,
+          "particleAngleRandomness2": 0,
+          "particleBlue1": 69,
+          "particleBlue2": 38,
+          "particleGravityX": 0,
+          "particleGravityY": 0,
+          "particleGreen1": 22,
+          "particleGreen2": 18,
+          "particleLifeTimeMax": 1.5,
+          "particleLifeTimeMin": 0.3,
+          "particleRed1": 192,
+          "particleRed2": 104,
+          "particleSize1": 50,
+          "particleSize2": 25,
+          "particleSizeRandomness1": 0,
+          "particleSizeRandomness2": 0,
+          "rendererParam1": 0.1,
+          "rendererParam2": 0.1,
+          "rendererType": "Quad",
+          "tank": 25,
+          "textureParticleName": "bloodsplat",
+          "type": "ParticleSystem::ParticleEmitter",
+          "zoneRadius": 3,
+          "variables": [],
+          "effects": [],
+          "behaviors": []
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "cut",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "NewSprite",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "NewSprite26",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 24,
+                            "y": 0
+                          },
+                          {
+                            "x": 24,
+                            "y": 24
+                          },
+                          {
+                            "x": 0,
+                            "y": 24
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "handdot",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "folded": true,
+              "name": "position",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "folded": true,
+              "name": "positions",
+              "type": "array",
+              "children": [
+                {
+                  "type": "array",
+                  "children": [
+                    {
+                      "type": "number",
+                      "value": 507
+                    },
+                    {
+                      "type": "number",
+                      "value": 272
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "children": [
+                    {
+                      "type": "number",
+                      "value": 476
+                    },
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 216
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "children": [
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 435
+                    },
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 130
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "children": [
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 379
+                    },
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 126
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "children": [
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 328
+                    },
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 172
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "children": [
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 271
+                    },
+                    {
+                      "folded": true,
+                      "type": "number",
+                      "value": 245
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "NewSprite",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "NewSprite27",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 16,
+                            "y": 0
+                          },
+                          {
+                            "x": 16,
+                            "y": 16
+                          },
+                          {
+                            "x": 0,
+                            "y": 16
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": false,
+          "assetStoreId": "",
+          "name": "handcollision",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "hand",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "hand5",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 97.5,
+                            "y": 140
+                          },
+                          {
+                            "x": 90,
+                            "y": 139
+                          },
+                          {
+                            "x": 114.5,
+                            "y": 73.5
+                          },
+                          {
+                            "x": 100.5,
+                            "y": 72
+                          },
+                          {
+                            "x": 90.5,
+                            "y": 95
+                          },
+                          {
+                            "x": 93.5,
+                            "y": 61.5
+                          },
+                          {
+                            "x": 94.5,
+                            "y": 29
+                          },
+                          {
+                            "x": 85,
+                            "y": 28
+                          },
+                          {
+                            "x": 73.5,
+                            "y": 62.5
+                          },
+                          {
+                            "x": 73,
+                            "y": 26
+                          },
+                          {
+                            "x": 68,
+                            "y": 20.5
+                          },
+                          {
+                            "x": 58.5,
+                            "y": 24
+                          },
+                          {
+                            "x": 56,
+                            "y": 75
+                          },
+                          {
+                            "x": 48,
+                            "y": 30.5
+                          },
+                          {
+                            "x": 39.5,
+                            "y": 30
+                          },
+                          {
+                            "x": 35.5,
+                            "y": 37
+                          },
+                          {
+                            "x": 35.5,
+                            "y": 88.5
+                          },
+                          {
+                            "x": 30.5,
+                            "y": 72
+                          },
+                          {
+                            "x": 23,
+                            "y": 54
+                          },
+                          {
+                            "x": 16,
+                            "y": 53.5
+                          },
+                          {
+                            "x": 12.5,
+                            "y": 65.5
+                          },
+                          {
+                            "x": 32.5,
+                            "y": 136
+                          },
+                          {
+                            "x": 25.5,
+                            "y": 141
+                          },
+                          {
+                            "x": 26.5,
+                            "y": 256
+                          },
+                          {
+                            "x": 90.5,
+                            "y": 254.5
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "NewText",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "what the hell\nwhy'd you click the arm??? you literally cannot do that on purpose\nmaybe just don't??? idk",
+          "font": "mononoki-Regular.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "what the hell\nwhy'd you click the arm??? you literally cannot do that on purpose\nmaybe just don't??? idk",
+            "font": "mononoki-Regular.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -21848,6 +22541,9 @@
             "objectName": "hand"
           },
           {
+            "objectName": "handcollision"
+          },
+          {
             "objectName": "hand2"
           },
           {
@@ -21855,6 +22551,18 @@
           },
           {
             "objectName": "dot"
+          },
+          {
+            "objectName": "handdot"
+          },
+          {
+            "objectName": "NewParticlesEmitter"
+          },
+          {
+            "objectName": "cut"
+          },
+          {
+            "objectName": "NewText"
           }
         ]
       },
@@ -21863,14 +22571,6 @@
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [
-            {
-              "type": {
-                "value": "CacheSouris"
-              },
-              "parameters": [
-                ""
-              ]
-            },
             {
               "type": {
                 "value": "MettreXY"
@@ -21888,11 +22588,70 @@
                 "value": "MettreXY"
               },
               "parameters": [
+                "handdot",
+                "=",
+                "CursorX()",
+                "=",
+                "CursorY()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
                 "dot",
                 "=",
                 "dot.positions[mod(dot.position,6)][0]",
                 "=",
-                "dot.positions[mod(dot.position,6)][1]"
+                "dot.positions[mod(dot.position,6)][1] + 600"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "handdot"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "handcollision"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCenterX"
+              },
+              "parameters": [
+                "pixBOT_face",
+                "=",
+                "SceneWindowWidth() / 2"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCenterX"
+              },
+              "parameters": [
+                "pixBOT",
+                "=",
+                "SceneWindowWidth() / 2"
+              ]
+            },
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "pixBOT_face",
+                "Animation",
+                "=",
+                "pixbot_emotion"
               ]
             }
           ]
@@ -22009,6 +22768,65 @@
           "conditions": [
             {
               "type": {
+                "value": "CollisionPoint"
+              },
+              "parameters": [
+                "hand",
+                "CursorX()",
+                "CursorY()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MouseButtonFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Left\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "cut",
+                "CursorX()",
+                "CursorY()",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "NewParticlesEmitter",
+                "CursorX()",
+                "CursorY()",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetGlobalVariableAsBoolean"
+              },
+              "parameters": [
+                "hurt",
+                "True"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
                 "value": "VarObjet"
               },
               "parameters": [
@@ -22017,6 +22835,12 @@
                 "=",
                 "12"
               ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
             }
           ],
           "actions": [
@@ -22026,6 +22850,36 @@
               },
               "parameters": [
                 ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "hand2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::TweenCameraPosition2"
+              },
+              "parameters": [
+                "",
+                "\"camera\"",
+                "400",
+                "300",
+                "",
+                "\"easeInOutCubic\"",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "1"
               ]
             },
             {
@@ -22060,6 +22914,103 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "pixbot_emotion",
+                "=",
+                "\"hurt\""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraCenterX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "400",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetCameraCenterY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "900",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "CacheSouris"
+              },
+              "parameters": [
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "NewText"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "MouseButtonPressed"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ]
+            },
+            {
+              "type": {
+                "value": "SourisSurObjet"
+              },
+              "parameters": [
+                "handdot",
+                "",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": []
         }
       ],
       "layers": [
@@ -22197,7 +23148,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.4816737915491932,
+        "zoomFactor": 0.45076158913272935,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -22404,7 +23355,7 @@
             }
           ],
           "content": {
-            "text": "i didn't expect you to pick it up so fast...",
+            "text": "",
             "opacity": 255,
             "scale": 1,
             "fontSize": 20,
@@ -22632,9 +23583,37 @@
               "parameters": [
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "GlobalVariableAsBoolean"
+              },
+              "parameters": [
+                "hurt",
+                "True"
+              ]
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "0.1"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "text",
+                "Text",
+                "=",
+                "\"uh...maybe you have to get better at this as well! haha...\""
+              ]
+            },
             {
               "type": {
                 "value": "ModVarGlobalTxt"
@@ -22647,40 +23626,102 @@
             },
             {
               "type": {
-                "value": "SetCameraCenterX"
+                "value": "Wait"
+              },
+              "parameters": [
+                "6"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "pixbot_emotion",
+                "=",
+                "\"normal\""
+              ]
+            },
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "text",
+                "Text",
+                "=",
+                "\"good job!\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Scene"
               },
               "parameters": [
                 "",
-                "=",
-                "400",
-                "",
+                "\"russian roulette\"",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DepartScene"
+              },
+              "parameters": [
                 ""
               ]
             },
             {
               "type": {
-                "value": "SetCameraCenterY"
+                "value": "GlobalVariableAsBoolean"
               },
               "parameters": [
-                "",
-                "=",
-                "900",
-                "",
+                "hurt",
                 ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "0.1"
               ]
             },
             {
               "type": {
-                "value": "Tween::TweenCameraPosition2"
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
               },
               "parameters": [
-                "",
-                "\"cameramoveback\"",
-                "400",
-                "300",
-                "",
-                "\"easeInOutCubic\"",
-                "1"
+                "text",
+                "Text",
+                "=",
+                "\"wow...you did really good!\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "pixbot_emotion",
+                "=",
+                "\"hurt\""
               ]
             },
             {
